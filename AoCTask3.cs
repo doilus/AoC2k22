@@ -18,6 +18,7 @@ namespace AocTasks
             {"Minus", 38},
         };
 
+        //*********************FIRST SOLUTION*********************
         public void Resolve()
         {
             string[] lines = ReadFile();
@@ -49,6 +50,7 @@ namespace AocTasks
             Console.WriteLine("Points for first part: " + points);
         }
 
+        //*********************SECOND SOLUTION*********************
         public void ResolveSecond()
         {
             string[] lines = ReadFile();
