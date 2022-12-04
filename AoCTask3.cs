@@ -19,7 +19,7 @@ namespace AocTasks
         };
 
         //*********************FIRST SOLUTION*********************
-        public void Resolve()
+        public void ResolveFirst()
         {
             string[] lines = ReadFile();
 
