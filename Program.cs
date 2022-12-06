@@ -30,3 +30,9 @@ Console.WriteLine();
 Console.WriteLine("Task 5");
 AoCTask5 task5 = new AoCTask5();
 task5.Resolve();
+
+Console.WriteLine();
+
+Console.WriteLine("Task 6");
+AoCTask6 task6 = new AoCTask6();
+task6.Resolve();

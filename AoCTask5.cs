@@ -17,6 +17,7 @@ namespace AocTasks
 
             foreach (string line in moves)
             {
+                //FIX THIS - GET ONLY NUMBERS
                 int[] numbers = line.Split(' ').Select(p =>
                 {
                     var numeric = int.TryParse(p, out int n);
