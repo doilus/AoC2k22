@@ -36,3 +36,7 @@ Console.WriteLine();
 Console.WriteLine("Task 6");
 AoCTask6 task6 = new AoCTask6();
 task6.Resolve();
+
+Console.WriteLine("Task 7");
+AoCTask7 task7 = new AoCTask7();
+task7.Resolve();
