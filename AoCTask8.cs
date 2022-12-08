@@ -22,10 +22,9 @@ namespace AocTasks
                 for (int j = 1; j < linesX - 1; j++)
                 {
                     int currentTree = lines[i][j] - '0';
-                    bool isVisible1 = true;
-                    bool isVisible2 = true;
-                    bool isVisible3 = true;
-                    bool isVisible4 = true;
+                    bool[] isVisible = new bool[] { true, true, true, true };
+
+                    int[] score = new int[] { 0, 0, 0, 0 };
 
                     int score1 = 0;
                     int score2 = 0;
@@ -36,8 +35,8 @@ namespace AocTasks
                     {
                         if (currentTree <= Char.GetNumericValue(lines[i][x]))
                         {
-                            isVisible1 = false;
-                            score1 = x - j;
+                            isVisible[0] = false;
+                            score[0] = x - j;
                             break;
                         }
                     }
@@ -46,8 +45,8 @@ namespace AocTasks
                     {
                         if (currentTree <= Char.GetNumericValue(lines[i][x]))
                         {
-                            isVisible2 = false;
-                            score2 = j - x;
+                            isVisible[1] = false;
+                            score[1] = j - x;
                             break;
                         }
                     }
@@ -56,8 +55,8 @@ namespace AocTasks
                     {
                         if (currentTree <= Char.GetNumericValue(lines[y][j]))
                         {
-                            isVisible3 = false;
-                            score3 = y - i;
+                            isVisible[2] = false;
+                            score[2] = y - i;
                             break;
                         }
                     }
@@ -66,25 +65,25 @@ namespace AocTasks
                     {
                         if (currentTree <= Char.GetNumericValue(lines[y][j]))
                         {
-                            isVisible4 = false;
-                            score4 = i - y;
+                            isVisible[3] = false;
+                            score[3] = i - y;
                             break;
                         }
                     }
 
-                    if (isVisible1 || isVisible2 || isVisible3 || isVisible4)
+                    if ( isVisible.Any(c => c == true))
                     {
                         count++;
                     }
 
-                    if (!(isVisible1 && isVisible2 && isVisible3 && isVisible4))
+                    if (!isVisible.All(c => c == true))
                     {
-                        if (score1 == 0) score1 = linesX - j - 1;
-                        if (score2 == 0) score2 = 0 + j;
-                        if (score3 == 0) score3 = linesY - i - 1;
-                        if (score4 == 0) score4 = 0 + i;
+                        if (score[0] == 0) score[0] = linesX - j - 1;
+                        if (score[1] == 0) score[1] = 0 + j;
+                        if (score[2] == 0) score[2] = linesY - i - 1;
+                        if (score[3] == 0) score[3] = 0 + i;
 
-                        scenicScore = score1 * score2 * score3 * score4;
+                        scenicScore = score.Aggregate(1, (a,b) => a * b);
                         if (scenicScore > scenicScoreMax) scenicScoreMax = scenicScore;
                     }
                 }
