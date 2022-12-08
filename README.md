@@ -1,4 +1,4 @@
-﻿#Advent of Code
+# Advent of Code
 
 Here you can find my solutions for Advent of Code 2022 :)
 
