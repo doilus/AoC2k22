@@ -23,13 +23,7 @@ namespace AocTasks
                 {
                     int currentTree = lines[i][j] - '0';
                     bool[] isVisible = new bool[] { true, true, true, true };
-
                     int[] score = new int[] { 0, 0, 0, 0 };
-
-                    int score1 = 0;
-                    int score2 = 0;
-                    int score3 = 0;
-                    int score4 = 0;
 
                     for (int x = j + 1; x < linesX; x++)
                     {
@@ -71,7 +65,7 @@ namespace AocTasks
                         }
                     }
 
-                    if ( isVisible.Any(c => c == true))
+                    if (isVisible.Any(c => c == true))
                     {
                         count++;
                     }
@@ -83,7 +77,7 @@ namespace AocTasks
                         if (score[2] == 0) score[2] = linesY - i - 1;
                         if (score[3] == 0) score[3] = 0 + i;
 
-                        scenicScore = score.Aggregate(1, (a,b) => a * b);
+                        scenicScore = score.Aggregate(1, (a, b) => a * b);
                         if (scenicScore > scenicScoreMax) scenicScoreMax = scenicScore;
                     }
                 }
