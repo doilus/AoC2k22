@@ -4,17 +4,16 @@ using System.Reflection;
 
 namespace AocTasks
 {
-	public class AoCTask7
+    public class AoCTask7
     {
         const int MAX = 100000;
         const int FREE = 30000000;
         const int TOTAL_MEMORY = 70000000;
 
         public void Resolve()
-		{
+        {
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"../../../Inputs/commands.txt");
             string[] lines = File.ReadAllLines(path);
-
 
             Dictionary<string, List<string>> catalogs = new Dictionary<string, List<string>>();
             Dictionary<string, int> catalogsValue = new Dictionary<string, int>();
@@ -24,7 +23,7 @@ namespace AocTasks
             string currentCatalog = "";
             string combinedPath = "";
 
-            foreach(string line in lines)
+            foreach (string line in lines)
             {
                 if (line.Contains("$ cd .."))
                 {
@@ -32,8 +31,6 @@ namespace AocTasks
                     currentCatalog = catalogsPath.Last();
                     continue;
                 }
-
-                
 
                 if (line.Contains("$ cd "))
                 {
@@ -46,7 +43,7 @@ namespace AocTasks
                     continue;
                 }
 
-                if(!line.Contains('$'))
+                if (!line.Contains('$'))
                 {
                     catalogs[combinedPath].Add(line);
                 }
@@ -89,7 +86,6 @@ namespace AocTasks
                     }
                 }
             }
-           
 
             long count = 0;
             int freeMemory = FREE - (TOTAL_MEMORY - catalogsValue["/"]);
@@ -97,7 +93,7 @@ namespace AocTasks
             List<int> lessThanFree = new List<int>();
             //count all values
             foreach (KeyValuePair<string, int> value in catalogsValue)
-            { 
+            {
                 if (value.Value <= MAX)
                 {
                     count += value.Value;
@@ -111,8 +107,6 @@ namespace AocTasks
 
             Console.WriteLine("Total value: " + count);
             Console.WriteLine("Min to delete: " + lessThanFree.Min());
-
-
         }
     }
 }
