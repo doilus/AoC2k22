@@ -48,3 +48,10 @@ Console.WriteLine();
 Console.WriteLine("Task 8");
 AoCTask8 task8 = new AoCTask8();
 task8.Resolve();
+
+Console.WriteLine();
+
+Console.WriteLine("Task 9");
+AoCTask9 task9 = new AoCTask9();
+task9.ResolveFirst();
+task9.ResolveSecond();
