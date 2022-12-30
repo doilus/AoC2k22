@@ -61,3 +61,9 @@ Console.WriteLine();
 Console.WriteLine("Task 10");
 AoCTask10 task10 = new AoCTask10();
 task10.Resolve();
+
+Console.WriteLine();
+
+Console.WriteLine("Task 11");
+AoCTask11 task11 = new AoCTask11();
+task11.Resolve();
